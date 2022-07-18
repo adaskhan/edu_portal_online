@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %} Index Page Title {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="w-100" src="{% static 'main/main_icon.webp' %}">
+        </div>
+        <div class="col-sm-6 my-auto">
+            <p class="text-center">
+                Educational Portal — система управления курсами (электронное обучение), также известная как система управления обучением или виртуальная обучающая среда  (англ.)рус.. Является аббревиатурой от англ. Modular Object-Oriented Dynamic Learning Environment (модульная объектно-ориентированная динамическая обучающая среда). Представляет собой свободное (распространяющееся по лицензии GNU GPL) веб-приложение, предоставляющее возможность создавать сайты для онлайн-обучения. Первая версия написана 20 августа 2002 года. СДО Moodle занимает примерно 18 % рынка в США.
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
