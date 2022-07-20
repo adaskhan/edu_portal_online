@@ -14,5 +14,18 @@
             </p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul>
+                {% if favorite_courses %}
+                    {% for course in favorite_courses %}
+                        <li>Название курса: {{ course.name }}, описание: {{ course.description }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>Нет курсов</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
 
 {% endblock %}
