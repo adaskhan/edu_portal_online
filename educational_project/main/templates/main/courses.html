@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %} Index Page Title {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="get" action="{% url 'main:results_page' %}">
+                <input type="text" placeholder="Введите название курса" name="course_name">
+                <input type="submit" value="Поиск">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-responsive">
+                <thead class="thead">
+                    <tr>
+                        <td>#</td>
+                        <td>Название курса</td>
+                        <td>Описание курса</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for course in all_courses %}
+                        <tr>
+                            <td>{{ course.pk }}</td>
+                            <td><a href="{% url 'main:course_detail_page' course.pk %}">{{ course.name }}</a></td>
+                            <td>{{ course.description }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
