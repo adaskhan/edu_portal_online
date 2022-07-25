@@ -19,3 +19,12 @@ class Student(models.Model):
     def __str__(self):
         return f"{self.date_of_birth}: {self.course}"
 
+
+class Comment(models.Model):
+    author = models.CharField(max_length=30, verbose_name='Автор комментария')
+    comment_text = models.TextField(verbose_name='Текст комментария')
+    created_date = models.DateField(auto_now_add=True, verbose_name='Дата создания комментария')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.author}: {self.created_date} - {self.course}"
