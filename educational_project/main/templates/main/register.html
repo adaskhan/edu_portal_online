@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h3>Зарегистрироваться</h3>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12 mx-auto">
+            <form method="post" class="form mx-auto">
+                {% if error %}
+                    <p class="text-danger">{{ error.message }}</p>
+                {% endif %}
+                {% csrf_token %}
+                <input type="text" class="form-control w-25" placeholder="Имя пользователя" name="username" required>
+                <input type="password" class="form-control w-25" placeholder="Пароль" name="password" required>
+                <input type="text" class="form-control w-25" placeholder="Почта" name="email" required>
+                <input type="text" class="form-control w-25" placeholder="Фамилия" name="last_name" required>
+                <input type="text" class="form-control w-25" placeholder="Имя" name="first_name" required>
+
+                <input type="submit" class="btn btn-primary" value="Зарегистрироваться">
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

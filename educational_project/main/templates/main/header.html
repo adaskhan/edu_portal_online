@@ -6,9 +6,21 @@
       <li class="nav-item">
         <a class="nav-link active" href="{% url 'main:index_page' %}">Home Page</a>
       </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'main:profile_page' %}">Profile</a>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{% url 'main:logout_view' %}">Logout</a>
+     </li>
+    {% else %}
      <li class="nav-item">
         <a class="nav-link" href="{% url 'main:login_page' %}">Login Page</a>
-      </li>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{% url 'main:register_page' %}">Register Page</a>
+     </li>
+    {% endif %}
      <li class="nav-item">
         <a class="nav-link" href="{% url 'main:courses_page' %}">Courses</a>
       </li>

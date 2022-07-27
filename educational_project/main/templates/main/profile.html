@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %} Index Page Title {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+          <h2>ФИ: {{ user.last_name }} {{ user.first_name }}</h2>
+          <p>Почта: {{ user.email }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mx-auto">
+                <form method="post" class="form mx-auto">
+                    {% if error %}
+                        <p class="text-danger">{{ error.message }}</p>
+                    {% endif %}
+                    {% csrf_token %}
+                    <input type="password" class="form-control w-25" placeholder="Пароль" name="password">
+                    <input type="text" class="form-control w-25" placeholder="Фамилия" name="last_name">
+                    <input type="text" class="form-control w-25" placeholder="Имя" name="first_name">
+                    <input type="submit" class="btn btn-primary" value="Изменить данные">
+                </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mx-auto">
+            <a href="{% url 'main:delete_profile' %}">Удалить страницу</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}
